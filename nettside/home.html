@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FinalProject</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <link rel="icon" href="images/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <a href="home.html" class="logo">
+        <img src="images/N_logo.svg" alt="logo image">
+    </a>
+    <nav>
+        <a href="home.html" class="active">home</a>
+        <a href="issue.html">issue</a>
+        <a href="solution.html">solution</a>
+        <a href="app.html">The App</a>
+    </nav>
+    <div class="menu-wrap">
+        <label for="toggler" class="hide">Menue</label>
+        <input type="checkbox" id="toggler">
+        <div class="hamburger">
+            <div></div>
+        </div>
+        <div class="menu">
+            <div>
+                <div>
+                    <ul>
+                        <li><a href="home.html">home</a></li>
+                        <li><a href="issue.html">issue</a></li>
+                        <li><a href="solution.html">solution</a></li>
+                        <li><a href="app.html">The App</a></li>
+                        <li><a href="about_us.html">about us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>
+<div id="show">
+    <div class="show_txt">
+        <h1>nice world for <span class="color">women </span></h1>
+        <h2><span class="color">combating</span> violence against women</h2>
+    </div>
+
+    <div class="pic">
+        <img src="images/1.png" alt="background image">
+    </div>
+</div>
+<main>
+    <section id="home-part2">
+        <div class="boxes">
+            <div class="box">
+                <img src="images/share.svg" alt="advice logo">
+                <div class="container">
+                    <h3>share your experience</h3>
+                    <p>Publish your and others' personal experience as victims of violence against women.
+                        You are free to choose whether to stay anonymous or not. Add a hashtag to support the case.</p>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/call.svg" alt="advice logo">
+                <div class="container">
+                    <h3>Get advice</h3>
+                    <p>Through the system, psychologists, legal , or health professionals in general can provide
+                        guidance and support through their own control panel through which they can answer users'
+                        inquiries.</p>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/advice_2.svg" alt="call logo">
+                <div class="container ">
+                    <h3>Volunteer Advisor</h3>
+                    <p>If you have experience in legal or psychological and would like to contribute to stopping
+                        VAW , please don't be hesitate to contact us.</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="home-pic">
+        </div>
+    </section>
+</main>
+<footer>
+    <div class="part1">
+        <a href="home.html">
+            <img src="images/logo_footer.png" alt="logo image">
+        </a>
+        <a href="resources.html" target="_blank">
+            Resources
+        </a>
+    </div>
+    <div class="part2">
+        <a href="https://www.un.org/sustainabledevelopment/ending-violence-against-women-and-girls/" target="_blank">
+            <button> Ending Violence Against Women and Girls</button>
+        </a>
+    </div>
+
+    <div class="part3">
+        <img src="images/E_GIF_05.gif" alt="Goal image">
+    </div>
+
+</footer>
+
+<script>
+    // Disable right-click
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    // Add overlay to deter screenshots (optional)
+    const overlay = document.createElement('div');
+    overlay.id = 'screenshotOverlay';
+    document.body.appendChild(overlay);
+
+    // Detect Print Screen key press and show overlay (may not work in all browsers)
+    document.addEventListener('keyup', function(e) {
+        if (e.key === 'PrintScreen') {
+            
+            alert("Screenshots are discouraged on this page.");
+            overlay.style.display = 'block';
+            setTimeout(() => overlay.style.display = 'none', 200); // Hide after a moment
+        }
+    });
+</script>
+</body>
+</html>
