@@ -7,6 +7,7 @@ COPY cvstyle.css /usr/share/nginx/html/
 COPY images /usr/share/nginx/html/images/
 COPY cv_13530357.png /usr/share/nginx/html/
 COPY Mohammad-Emad_CV.pdf /usr/share/nginx/html/
+COPY nettside /usr/share/nginx/html/nettside/
 
 # Expose port 80 for HTTP traffic
 EXPOSE 80
