@@ -1,0 +1,6 @@
+{
+    "routes": {
+      "/nettside/*": "nettside/"
+    }
+  }
+  
