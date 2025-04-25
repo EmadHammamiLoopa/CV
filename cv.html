@@ -3,600 +3,1423 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="cvstyle.css" type="text/css" rel="stylesheet">
-
     <title>Mohammad Emad Hammami - CV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* General Body Styling */
-
-
-
-
-
+        :root {
+            --primary: #00695c;
+            --primary-light: #439889;
+            --secondary: #ff8f00;
+            --dark: #263238;
+            --light: #f5f5f5;
+            --gray: #eceff1;
+            --accent: #00acc1;
+            --success: #4caf50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            opacity: 0.1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        .specialization {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .specialization span {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-info a:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-3px) scale(1.1);
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .download-btn:hover {
+            background-color: #e65100;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+            padding: 15px 0;
+            scrollbar-width: none;
+        }
+        
+        .nav-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            padding: 8px 15px;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            border-radius: 20px;
+            margin: 0 5px;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gray);
+            font-size: 1.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            color: var(--secondary);
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background-color: var(--gray);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .skill-list li::before {
+            content: "•";
+            color: var(--secondary);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--primary-light);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--gray);
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--secondary);
+        }
+        
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-position {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+        
+        .timeline-company {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .timeline-date {
+            color: var(--primary-light);
+            font-size: 0.9rem;
+        }
+        
+        .timeline-content {
+            margin-top: 10px;
+        }
+        
+        .timeline-content ul {
+            list-style-position: inside;
+            padding-left: 5px;
+        }
+        
+        .timeline-content li {
+            margin-bottom: 8px;
+        }
+        
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .education-card {
+            background-color: var(--gray);
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .education-degree {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .education-institution {
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .education-duration {
+            color: var(--primary-light);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .education-thesis {
+            font-style: italic;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #ccc;
+        }
+        
+        .grade-badge {
+            display: inline-block;
+            background-color: var(--success);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .project-card {
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-header {
+            padding: 15px;
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .project-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .project-org {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .project-body {
+            padding: 15px;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .project-link:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+        
+        /* Publications Section */
+        .publication-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        .publication-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .publication-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .publication-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 10px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .publication-link:hover {
+            color: var(--primary-light);
+            transform: translateX(5px);
+        }
+        
+        /* Certifications Section */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .certification-card {
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .certification-image {
+            height: 180px;
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .certification-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .certification-body {
+            padding: 15px;
+        }
+        
+        .certification-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        
+        .certification-issuer {
+            color: var(--primary-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Volunteer Section */
+        .volunteer-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--gray);
+        }
+        
+        .volunteer-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .volunteer-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+        
+        .volunteer-position {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .volunteer-org {
+            color: var(--primary);
+        }
+        
+        .volunteer-duration {
+            color: var(--primary-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Languages Section */
+        .languages-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .language-item {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        /* Interests Section */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .interest-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--gray);
+            padding: 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .interest-item:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .interest-icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .interest-item:hover .interest-icon {
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .modal-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .timeline-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .education-grid, .projects-grid, .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                justify-content: flex-start;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
     </style>
-    
 </head>
 <body>
-
-    <header id="contact">
-        <h1>Mohammad Emad Hammami</h1>
-        <p>Experienced software engineer and AI expert with a proven track record in leading Agile transformations and developing cutting-edge machine learning solutions. <br> Passionate about driving innovation in the tech industry, with a focus on security, scalability, and cross-functional collaboration.</p>
-
-        <p>AI & machine learning | Engineering & IT Management | Agile Practices & Digital Transformation</p>
-        <p>Oslo, Norway | <a href="mailto:Emad.hammami@outlook.com">Emad.hammami@outlook.com</a> | +47 947 13 960</p>
-        <p><a href="https://www.linkedin.com/in/emadhammami">LinkedIn Profile</a> | <a href="https://www.researchgate.net/profile/Mohammad-Emad-Hammami">ResearchGate Profile</a></p>
-    
-        <p>
-            <a href="Mohammad-Emad_CV.pdf" download="Mohammad_Emad_Hammami_CV" class="download-cv-button">
-                <img src="cv_13530357.png" alt="Download CV Icon" style="width: 50px; vertical-align: middle; margin-right: 8px;"> Download CV
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <h1>Mohammad Emad Hammami</h1>
+            <p class="tagline">
+                Experienced software engineer and Scrum Master, AI specialist with academic research contributions, and a strong foundation in software engineering, machine learning, Agile practices, and digital transformation leadership.
+            </p>
+            
+            <div class="specialization">
+              <span>AI & Machine Learning</span>
+              <span>Academic Research</span>
+              <span>Engineering & IT Management</span>
+              <span>Agile Practices</span>
+              <span>Digital Transformation</span>
+            </div>
+            
+            
+            <div class="contact-info">
+                <a href="#"><i class="fas fa-map-marker-alt"></i> Oslo, Norway</a>
+                <a href="mailto:Emad.hammami@outlook.com"><i class="fas fa-envelope"></i> Emad.hammami@outlook.com</a>
+                <a href="tel:+4794713960"><i class="fas fa-phone"></i> +47 947 13 960</a>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/emadhammami" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.researchgate.net/profile/Mohammad-Emad-Hammami" target="_blank"><i class="fab fa-researchgate"></i></a>
+              <!--   <a href="#"><i class="fab fa-github"></i></a>-->
+            </div>
+            
+            <a href="Mohammad-Emad_CV.pdf" download="Mohammad_Emad_Hammami_CV" class="download-btn">
+                <i class="fas fa-download"></i> Download CV
             </a>
-        </p>
-        
+        </div>
     </header>
-
-    <!-- Navigation Bar -->
+    
+    <!-- Navigation -->
     <nav>
-        <a href="#skills">Key Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#projects">Projects</a>
-        <a href="#publications">Publications</a>
-        <a href="#certifications">Certifications</a>
-      <!--  <a href="#testimonials">Testimonials</a>-->
-        <a href="#volunteer">Volunteer Work</a>
-        <a href="#languages">Languages</a>
-        <a href="#interests">Interests</a>
-        <a href="#contact">Contact</a>
-
+        <div class="nav-container">
+            <a href="#skills" class="nav-link active"><i class="fas fa-tools"></i> Skills</a>
+            <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a>
+            <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
+            <a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i> Projects</a>
+            <a href="#publications" class="nav-link"><i class="fas fa-book"></i> Publications</a>
+            <a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a>
+            <a href="#volunteer" class="nav-link"><i class="fas fa-hands-helping"></i> Volunteer</a>
+            <a href="#languages" class="nav-link"><i class="fas fa-language"></i> Languages</a>
+            <a href="#interests" class="nav-link"><i class="fas fa-heart"></i> Interests</a>
+        </div>
     </nav>
-
-    <div class="container">
-        <!-- Key Skills -->
-        <div id="skills" class="section">
-            <h2>Key Skills</h2>
-            <ul>
-                <li><strong>Leadership & Management:</strong> Engineering Management, IT Management, Agile Methodologies (Scrum, Kanban, Lean, SAFe), Project Planning, Team Development, and Stakeholder Communication</li>
-                
-                <li><strong>Software Development & Analysis:</strong> Full SDLC (Software Development Life Cycle), CRM Integration, Business Analysis, DevOps, Troubleshooting, and Quality Assurance</li>
-                
-                <li><strong>Information & Network Security:</strong> Information Security Management, Threat Assessment, Software and Network Security Protocols, Compliance (GDPR)</li>
-                
-                <li><strong>Data & Cloud Technologies:</strong> Big Data Processing, Data Science Techniques, Database Management (MySQL, Hadoop, MongoDB), Microsoft Azure, and Cloud Computing Architecture</li>
-            </ul>
-        </div>
-        
-
-        <!-- Experience -->
-        <div id="experience" class="section experience">
-            <h2>Work Experience</h2>
-            <ul>
-                <li>
-                    <strong>Software Engineer / Scrum Master</strong> - <span class="highlight">DNB Bank, Oslo</span> (07.2021 - Present)
-                    <p>Played a dual role as a Software Engineer and Scrum Master, leading Agile transformations and optimizing team collaboration to drive project success.</p>
-                    <ul>
-                        <li><strong>Agile Implementation:</strong> Spearheaded the adoption of Agile methodologies, utilizing Scrum and Kanban to improve sprint planning, backlog management, and task prioritization, which increased efficiency across cross-functional teams.</li>
-                        <li><strong>Quality Assurance:</strong> Developed detailed test scenarios using Octane, ensuring the smooth integration of Sbanken into DNB systems with high-quality outcomes and robust performance.</li>
-                        <li><strong>Incident Management:</strong> Enhanced IT service delivery by managing incident resolution and system troubleshooting in ServiceNow, focusing on proactive performance and resource optimization.</li>
-                        <li><strong>Stakeholder Communication:</strong> Maintained transparent, consistent communication with stakeholders, regularly updating them on project milestones, fostering alignment with business objectives, and strengthening stakeholder relationships.</li>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Key Skills Section -->
+        <section id="skills" class="section">
+            <h2 class="section-title"><i class="fas fa-tools"></i> Key Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Leadership & Management</h3>
+                    <ul class="skill-list">
+                        <li>Engineering Management</li>
+                        <li>IT Management</li>
+                        <li>Agile Methodologies</li>
+                        <li>Project Planning</li>
+                        <li>Team Development</li>
+                        <li>Stakeholder Communication</li>
                     </ul>
-                </li>
-        
-                <li>
-                    <strong>Founder and Director</strong> - <span class="highlight">Femi, Oslo</span> (03.2021 - 12.2023)
-                    <p>Founded and directed Femi, a social system project aimed at enhancing women’s safety and community engagement, working closely with cross-functional teams and government agencies.</p>
-                    <ul>
-                        <li><strong>Project Leadership:</strong> Led a remote development team from concept to deployment, overseeing product design, development, and feature rollout.</li>
-                        <li><strong>Collaboration with Authorities:</strong> Coordinated efforts with the Norwegian Directorate for Children, Youth, and Family Affairs to integrate safety features and community-building aspects, ensuring the project aligned with national priorities.</li>
-                        <li><strong>Technical Oversight:</strong> Directed technical decision-making for the platform, focusing on user-friendly design, high security, and seamless functionality to create a safe online environment for users.</li>
-                        <li><strong>Growth and User Engagement:</strong> Implemented strategies to drive user engagement and platform growth, successfully fostering a vibrant community focused on women's safety and support.</li>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Software Development</h3>
+                    <ul class="skill-list">
+                        <li>Full SDLC</li>
+                        <li>CRM Integration</li>
+                        <li>Business Analysis</li>
+                        <li>DevOps</li>
+                        <li>Troubleshooting</li>
+                        <li>Quality Assurance</li>
                     </ul>
-                </li>
-        
-                <li>
-                    <strong>Scrum Master</strong> - <span class="highlight">Telia, Oslo</span> (08.2020 - 05.2021)
-                    <p>Served as Scrum Master for Telia, guiding a development team to meet project goals by fostering Agile best practices and enhancing team performance.</p>
-                    <ul>
-                        <li><strong>Team Facilitation:</strong> Facilitated daily stand-ups, sprint reviews, and retrospectives, promoting open communication and continuous improvement within the team.</li>
-                        <li><strong>Task Management:</strong> Effectively managed sprint planning and backlog prioritization, ensuring that tasks aligned with project goals and were delivered on schedule.</li>
-                        <li><strong>Technical Contributions:</strong> Actively contributed to development tasks, leveraging Laravel and Onfido technologies to implement required project features and functionalities.</li>
-                        <li><strong>Project Alignment:</strong> Worked closely with stakeholders to ensure alignment on project goals, adjusting Agile processes as needed to address project demands and optimize outcomes.</li>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Information Security</h3>
+                    <ul class="skill-list">
+                        <li>Information Security Management</li>
+                        <li>Threat Assessment</li>
+                        <li>Security Protocols</li>
+                        <li>Compliance (GDPR)</li>
                     </ul>
-                </li>
-            </ul>
-        </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Data & Cloud Technologies</h3>
+                    <ul class="skill-list">
+                        <li>Big Data Processing</li>
+                        <li>Data Science Techniques</li>
+                        <li>Database Management</li>
+                        <li>Microsoft Azure</li>
+                        <li>Cloud Computing Architecture</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
         
-
-        <!-- Education -->
-        <div id="education" class="section education">
-            <h2>Education</h2>
-            <ul>
-                <li>
-                    <strong>Master’s in Programming and System Architecture</strong> - <span class="highlight">University of Oslo</span> (07.2021 - 12.2023)
-                    <p>Specialized in Software Engineering, IT team management, strategy development, and architectural analysis. <ins class="highlight-grade"> Achieved a grade of A in the thesis. </ins></p>
-                    <p><em>Thesis:</em> "Federated and Tiny Machine Learning for Edge Computing in Industrial IoT". Focused on combining federated learning and Tiny ML to enable efficient data processing at the edge.</p>
-                </li>
-                <li>
-                    <strong>Bachelor’s in Computer Science</strong> - <span class="highlight">University of Oslo</span> (06.2019 - 05.2022)
-                    <p>Concentrated on programming languages, software engineering, data structures, and artificial intelligence.</p>
-                </li>
-                <li>
-                    <strong>Bachelor’s in Information Technology</strong> - <span class="highlight">University of OsloMet</span> (06.2018 - 05.2021)
-                    <p>Specialized in deep learning, web technologies, and system development. Explored cutting-edge web and AI technologies. <ins class="highlight-grade"> Achieved a grade of B. </ins></p>
-                </li>
-                <li>
-                    <strong>Bachelor’s in Information Technology Engineering</strong> - <span class="highlight">University of Kalamoon</span> (06.2010 - 06.2012)
-                    <p>Specialized in programming, algorithm design, and advanced mathematics, building a foundation in engineering principles and technical problem-solving.</p>
-                </li>
-                
-            </ul>
-        </div>
-        
-
-        <!-- Projects -->
-        <div id="projects" class="section projects">
-            <h2>Projects</h2>
-            <ul>
-                <li>
-                    <strong>DNB Digital Transformation Research</strong> - <span class="highlight">University of Oslo</span> (2023)
-                    <p>Conducted in-depth research on DNB Bank’s digital transformation initiatives. Focused on the implementation of emerging technologies and organizational restructuring to enhance DNB’s competitiveness in the digital landscape. Provided insights into effective strategies for digital innovation and change management within the banking sector.</p>
-                </li>
-                
-                <li>
-                    <strong>Software Process Improvement (SPI) Plan</strong> - <span class="highlight">DNB Bank</span> (2023)
-                    <p>Developed a comprehensive SPI plan for DNB, emphasizing Agile methodologies, process optimization, and the integration of modern software development practices. This plan aimed to enhance the efficiency and quality of software products, supporting DNB’s digital transformation goals.</p>
-                </li>
-                
-                <li>
-                    <strong>Handbook of Scrum Methodology</strong> - <span class="highlight">DNB Bank</span> (2021)
-                    <p>Authored a detailed handbook on Scrum methodology, outlining best practices, common challenges, and practical strategies for effective implementation. This guide served as a reference for DNB’s development teams, promoting consistency and efficiency in Agile projects.</p>
-                </li>
-                
-                <li>
-                    <strong>Factors Influencing Digital Strategy at DNB</strong> - <span class="highlight">University of Oslo</span> (2023)
-                    <p>Co-authored a study analyzing the key factors that influence digital strategy development and implementation at DNB. The research provided strategic insights into planning, change management, and digital innovation, essential for competitive advantage in the financial sector.</p>
-                </li>
-                
-                <li>
-                    <strong>Adaptive Mean Absolute Deviation (AdMAD) Pruning in Federated Learning</strong> - <span class="highlight">University of Oslo</span> (2023)
-                    <p>Published research on a hybrid approach for efficient data transmission and model performance in federated learning. This project introduced a pruning technique aimed at optimizing data processing and resource usage in edge computing environments.</p>
-                </li>
-                
-                <li>
-                    <strong>AMBIT: An Efficient Pruning Technique in Federated Learning for Edge Computing Systems</strong> - <span class="highlight">IEEE ICFEC</span> (2024)
-                    <p>Presented at the 8th IEEE International Conference on Fog and Edge Computing (ICFEC), this project focused on developing AMBIT, an efficient pruning technique designed to enhance model performance and reduce data transmission needs in federated learning systems.</p>
-                </li>
-
-                <li>
-                    <strong>Femi System for Women's Safety and Community Engagement</strong> - <span class="highlight">Personal Project</span> (2021-2023)
-                    <p>Developed the Femi system, a platform for women’s safety and community engagement.</p>
-                    
-                    <!-- Links on the same line with space between them -->
-                    <div style="display: flex; gap: 15px;">
-                        <p><a href="nettside/home.html" target="_blank" class="custom-button">View Home Page</a></p>
-                        <p><a href="nettside/issue.html" target="_blank" class="custom-button">Understand the Issue</a></p>
-
-                        <p><a href="nettside/solution.html" target="_blank" class="custom-button">Explore Our App</a></p>
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <span class="timeline-position">Software Engineer / Scrum Master</span>
+                            <span class="timeline-company">DNB Bank, Oslo</span>
+                        </div>
+                        <span class="timeline-date">07.2021 - Present</span>
                     </div>
-                </li>
+                    <div class="timeline-content">
+                        <p>Played a dual role as a Software Engineer and Scrum Master, leading Agile transformations and optimizing team collaboration to drive project success.</p>
+                        <ul>
+                            <li><strong>Agile Implementation:</strong> Spearheaded the adoption of Agile methodologies, utilizing Scrum and Kanban to improve sprint planning, backlog management, and task prioritization.</li>
+                            <li><strong>Quality Assurance:</strong> Developed detailed test scenarios using Octane, ensuring the smooth integration of Sbanken into DNB systems with high-quality outcomes.</li>
+                            <li><strong>Incident Management:</strong> Enhanced IT service delivery by managing incident resolution and system troubleshooting in ServiceNow.</li>
+                            <li><strong>Stakeholder Communication:</strong> Maintained transparent, consistent communication with stakeholders, regularly updating them on project milestones.</li>
+                        </ul>
+                    </div>
+                </div>
                 
-            </ul>
-        </div>
-        
-
-        <!-- Publications -->
-        <div id="publications" class="section publications">
-            <h2>Academic Publications</h2>
-            <ul>
-                <li><strong>Adaptive Mean Absolute Deviation Pruning in Federated Learning</strong> - Published in DUO, University of Oslo (2023)</li>
-                <p><a href="https://www.duo.uio.no/bitstream/handle/10852/108659/Master_thesis-20-11-.pdf?sequence=11" target="_blank" class="custom-button">DUO- University of Oslo</a></p>
-
-                <li><strong>AMBIT: Efficient Pruning Technique for Edge Computing</strong> - Published in IEEE International Conference on Fog and Edge Computing (2024)</li>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <span class="timeline-position">Founder and Director</span>
+                            <span class="timeline-company">Femi, Oslo</span>
+                        </div>
+                        <span class="timeline-date">03.2021 - 12.2023</span>
+                    </div>
+                    <div class="timeline-content">
+                        <p>Founded and directed Femi, a social system project aimed at enhancing women's safety and community engagement.</p>
+                        <ul>
+                            <li><strong>Project Leadership:</strong> Led a remote development team from concept to deployment, overseeing product design and development.</li>
+                            <li><strong>Collaboration with Authorities:</strong> Coordinated efforts with the Norwegian Directorate for Children, Youth, and Family Affairs.</li>
+                            <li><strong>Technical Oversight:</strong> Directed technical decision-making for the platform, focusing on user-friendly design and high security.</li>
+                            <li><strong>Growth and User Engagement:</strong> Implemented strategies to drive user engagement and platform growth.</li>
+                        </ul>
+                    </div>
+                </div>
                 
-                <p><a href="https://ieeexplore.ieee.org/document/10707219" target="_blank" class="custom-button">IEEE Xplore</a></p>
-
-            </ul>
-        </div>
-<div id="certifications" class="section certifications">
-    <h2>Certifications</h2>
-    <div class="certification-cards">
-        <!-- Certification Card 1 -->
-        <div class="cert-card">
-            <a href="images/1660726341329_page_1.jpg" target="_blank">
-                <img src="images/1660726341329_page_1.jpg" alt="Agile Project Management Certificate">
-                <div class="cert-info">
-                    <h3>Agile Project Management</h3>
-                    <p>Google</p>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <span class="timeline-position">Scrum Master</span>
+                            <span class="timeline-company">Telia, Oslo</span>
+                        </div>
+                        <span class="timeline-date">08.2020 - 05.2021</span>
+                    </div>
+                    <div class="timeline-content">
+                        <p>Served as Scrum Master for Telia, guiding a development team to meet project goals by fostering Agile best practices.</p>
+                        <ul>
+                            <li><strong>Team Facilitation:</strong> Facilitated daily stand-ups, sprint reviews, and retrospectives, promoting open communication.</li>
+                            <li><strong>Task Management:</strong> Effectively managed sprint planning and backlog prioritization.</li>
+                            <li><strong>Technical Contributions:</strong> Actively contributed to development tasks, leveraging Laravel and Onfido technologies.</li>
+                            <li><strong>Project Alignment:</strong> Worked closely with stakeholders to ensure alignment on project goals.</li>
+                        </ul>
+                    </div>
                 </div>
-            </a>
-        </div>
+            </div>
+        </section>
+        
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="education-grid">
 
-        <!-- Certification Card 2 -->
-        <div class="cert-card">
-            <a href="images/1660726379919_page_1.jpg" target="_blank">
-                <img src="images/1660726379919_page_1.jpg" alt="Foundations of Project Management Certificate">
-                <div class="cert-info">
-                    <h3>Foundations of Project Management</h3>
-                    <p>Google</p>
+                <div class="education-card">
+                    <h3 class="education-degree">Master’s in Digitalization and Management</h3>
+                    <p class="education-institution">University of South-Eastern Norway (USN)</p>
+                    <p class="education-duration">06.2024 – Present</p>
+                    <p>Specialized in the intersection of digital transformation and leadership.</p>
+                    <span class="grade-badge">Ongoing</span>
                 </div>
-            </a>
-        </div>
+                
 
-        <!-- Certification Card 3 -->
-        <div class="cert-card">
-            <a href="images/1671612880881_page_1.jpg" target="_blank">
-                <img src="images/1671612880881_page_1.jpg" alt="Project Initiation Certificate">
-                <div class="cert-info">
-                    <h3>Project Initiation: Starting a Successful Project</h3>
-                    <p>Google</p>
+                <div class="education-card">
+                    <h3 class="education-degree">Master's in Programming and System Architecture</h3>
+                    <p class="education-institution">University of Oslo</p>
+                    <p class="education-duration">07.2021 - 12.2023</p>
+                    <p>Specialized in Software Engineering, IT team management, strategy development, and architectural analysis.</p>
+                    <span class="grade-badge">Grade: A</span>
+                    <p class="education-thesis"><strong>Thesis:</strong> "Federated and Tiny Machine Learning for Edge Computing in Industrial IoT"</p>
                 </div>
-            </a>
+                
+                <div class="education-card">
+                    <h3 class="education-degree">Bachelor's in Computer Science</h3>
+                    <p class="education-institution">University of Oslo</p>
+                    <p class="education-duration">06.2019 - 05.2022</p>
+                    <p>Concentrated on programming languages, software engineering, data structures, and artificial intelligence.</p>
+                </div>
+                
+                <div class="education-card">
+                    <h3 class="education-degree">Bachelor's in Information Technology</h3>
+                    <p class="education-institution">University of OsloMet</p>
+                    <p class="education-duration">06.2018 - 05.2021</p>
+                    <p>Specialized in deep learning, web technologies, and system development.</p>
+                    <span class="grade-badge">Grade: B</span>
+                </div>
+                
+                <div class="education-card">
+                    <h3 class="education-degree">Bachelor's in Information Technology Engineering</h3>
+                    <p class="education-institution">University of Kalamoon</p>
+                    <p class="education-duration">06.2010 - 06.2012</p>
+                    <p>Specialized in programming, algorithm design, and advanced mathematics.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2 class="section-title"><i class="fas fa-project-diagram"></i> Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">DNB Digital Transformation Research</h3>
+                        <p class="project-org">University of Oslo</p>
+                    </div>
+                    <div class="project-body">
+                        <p>Conducted in-depth research on DNB Bank's digital transformation initiatives, focusing on emerging technologies and organizational restructuring.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Software Process Improvement (SPI) Plan</h3>
+                        <p class="project-org">DNB Bank</p>
+                    </div>
+                    <div class="project-body">
+                        <p>Developed a comprehensive SPI plan for DNB, emphasizing Agile methodologies and process optimization to enhance software quality.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Handbook of Scrum Methodology</h3>
+                        <p class="project-org">DNB Bank</p>
+                    </div>
+                    <div class="project-body">
+                        <p>Authored a detailed handbook on Scrum methodology, outlining best practices and practical strategies for effective implementation.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Femi System for Women's Safety</h3>
+                        <p class="project-org">Personal Project</p>
+                    </div>
+                    <div class="project-body">
+                        <p>Developed the Femi system, a platform for women's safety and community engagement.</p>
+                        <div class="project-links">
+                            <a href="nettside/home.html" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Home Page</a>
+                            <a href="nettside/issue.html" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> The Issue</a>
+                            <a href="nettside/solution.html" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Our App</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Publications Section -->
+        <section id="publications" class="section">
+            <h2 class="section-title"><i class="fas fa-book"></i> Academic Publications</h2>
+            <div class="publication-item">
+                <h3 class="publication-title">Adaptive Mean Absolute Deviation Pruning in Federated Learning</h3>
+                <p>Published in DUO, University of Oslo (2023)</p>
+                <a href="https://www.duo.uio.no/bitstream/handle/10852/108659/Master_thesis-20-11-.pdf?sequence=11" target="_blank" class="publication-link">
+                    <i class="fas fa-external-link-alt"></i> View Publication
+                </a>
+            </div>
+            
+            <div class="publication-item">
+                <h3 class="publication-title">AMBIT: Efficient Pruning Technique for Edge Computing</h3>
+                <p>Published in IEEE International Conference on Fog and Edge Computing (2024)</p>
+                <a href="https://ieeexplore.ieee.org/document/10707219" target="_blank" class="publication-link">
+                    <i class="fas fa-external-link-alt"></i> View Publication
+                </a>
+            </div>
+        </section>
+        
+        <!-- Certifications Section -->
+        <section id="certifications" class="section">
+            <h2 class="section-title"><i class="fas fa-certificate"></i> Certifications</h2>
+            <div class="certifications-grid">
+                <!-- Certification 1 -->
+                <div class="certification-card" onclick="openModal('images/1660726341329_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1660726341329_page_1.jpg" alt="Agile Project Management Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Agile Project Management</h3>
+                        <p class="certification-issuer">Google</p>
+                    </div>
+                </div>
+                
+                <!-- Certification 2 -->
+                <div class="certification-card" onclick="openModal('images/1660726379919_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1660726379919_page_1.jpg" alt="Foundations of Project Management Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Foundations of Project Management</h3>
+                        <p class="certification-issuer">Google</p>
+                    </div>
+                </div>
+                
+                <!-- Certification 3 -->
+                <div class="certification-card" onclick="openModal('images/1671612880881_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1671612880881_page_1.jpg" alt="Project Initiation Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Project Initiation: Starting a Successful Project</h3>
+                        <p class="certification-issuer">Google</p>
+                    </div>
+                </div>
+                
+                <!-- Certification 4 -->
+                <div class="certification-card" onclick="openModal('images/1671612993872_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1671612993872_page_1.jpg" alt="Applying Project Management Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Applying Project Management in the Real World</h3>
+                        <p class="certification-issuer">Google</p>
+                    </div>
+                </div>
+                
+                <!-- Certification 5 -->
+                <div class="certification-card" onclick="openModal('images/1671784474270_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1671784474270_page_1.jpg" alt="Project Planning Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Project Planning: Putting It All Together</h3>
+                        <p class="certification-issuer">Google</p>
+                    </div>
+                </div>
+                
+                <!-- Certification 6 -->
+                <div class="certification-card" onclick="openModal('images/1671784491577_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1671784491577_page_1.jpg" alt="Project Management Professional Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Project Management Professional Certificate</h3>
+                        <p class="certification-issuer">PMI and NASBA</p>
+                    </div>
+                </div>
+                
+                <!-- Certification 7 -->
+                <div class="certification-card" onclick="openModal('images/1671784505017_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1671784505017_page_1.jpg" alt="Managing Project Stakeholders Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Managing Project Stakeholders</h3>
+                        <p class="certification-issuer">PMI and NASBA</p>
+                    </div>
+                </div>
+                
+                <!-- Certification 8 -->
+                <div class="certification-card" onclick="openModal('images/1671784515848_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1671784515848_page_1.jpg" alt="Collaborating with Microsoft 365 Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Collaborating with Microsoft 365</h3>
+                        <p class="certification-issuer">PMI and NASBA</p>
+                    </div>
+                </div>
+                
+                <!-- Certification 9 -->
+                <div class="certification-card" onclick="openModal('images/1671784528020_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1671784528020_page_1.jpg" alt="Managing Projects with Microsoft 365 Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Managing Projects with Microsoft 365</h3>
+                        <p class="certification-issuer">PMI and NASBA</p>
+                    </div>
+                </div>
+                
+                <!-- Certification 10 -->
+                <div class="certification-card" onclick="openModal('images/1671784557816_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1671784557816_page_1.jpg" alt="Optimizing Your Work with Microsoft 365 Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Optimizing Your Work with Microsoft 365</h3>
+                        <p class="certification-issuer">PMI and NASBA</p>
+                    </div>
+                </div>
+                
+                <!-- Certification 11 -->
+                <div class="certification-card" onclick="openModal('images/1705676493629_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1705676493629_page_1.jpg" alt="Managing and Leading Developers Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Managing and Leading Developers</h3>
+                        <p class="certification-issuer">People Management</p>
+                    </div>
+                </div>
+                
+                <!-- Certification 12 -->
+                <div class="certification-card" onclick="openModal('images/1705928511871_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1705928511871_page_1.jpg" alt="Coaching Skills for Leaders and Managers Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Coaching Skills for Leaders and Managers</h3>
+                        <p class="certification-issuer">People Management</p>
+                    </div>
+                </div>
+                
+                <!-- Certification 13 -->
+                <div class="certification-card" onclick="openModal('images/1705928528070_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1705928528070_page_1.jpg" alt="Effective Technical Communication Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Effective Technical Communication</h3>
+                        <p class="certification-issuer">People Management</p>
+                    </div>
+                </div>
+                
+                <!-- Certification 14 -->
+                <div class="certification-card" onclick="openModal('images/1705928552070_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1705928552070_page_1.jpg" alt="Building Trust Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Building Trust</h3>
+                        <p class="certification-issuer">People Management</p>
+                    </div>
+                </div>
+                
+                <!-- Certification 15 -->
+                <div class="certification-card" onclick="openModal('images/1705928566657_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1705928566657_page_1.jpg" alt="Manager's Guide to Difficult Conversations Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Manager's Guide to Difficult Conversations</h3>
+                        <p class="certification-issuer">People Management</p>
+                    </div>
+                </div>
+                
+                <!-- Certification 16 -->
+                <div class="certification-card" onclick="openModal('images/1705928611081_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1705928611081_page_1.jpg" alt="Inclusive Tech: Humane Code Reviews Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Inclusive Tech: Humane Code Reviews</h3>
+                        <p class="certification-issuer">People Management</p>
+                    </div>
+                </div>
+                
+                <!-- Certification 17 -->
+                <div class="certification-card" onclick="openModal('images/1705928637562_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1705928637562_page_1.jpg" alt="Agile Software Development Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Agile Software Development: Creating an Agile Culture</h3>
+                        <p class="certification-issuer">People Management</p>
+                    </div>
+                </div>
+                
+                <!-- Certification 18 -->
+                <div class="certification-card" onclick="openModal('images/1705928671773_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1705928671773_page_1.jpg" alt="Succeeding as a First-Time Tech Manager Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Succeeding as a First-Time Tech Manager</h3>
+                        <p class="certification-issuer">People Management</p>
+                    </div>
+                </div>
+                
+                <!-- Certification 19 -->
+                <div class="certification-card" onclick="openModal('images/1705676493629_page_1.jpg')">
+                    <div class="certification-image">
+                        <img src="images/1705676493629_page_1.jpg" alt="Moving from Developer to Engineering Manager Certificate">
+                    </div>
+                    <div class="certification-body">
+                        <h3 class="certification-title">Moving from Developer to Engineering Manager</h3>
+                        <p class="certification-issuer">People Management</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Volunteer Section -->
+        <section id="volunteer" class="section">
+            <h2 class="section-title"><i class="fas fa-hands-helping"></i> Volunteer Work</h2>
+            <div class="volunteer-item">
+                <div class="volunteer-header">
+                    <div>
+                        <span class="volunteer-position">Ambassador</span>
+                        <span class="volunteer-org">Nobel Peace Center, Oslo</span>
+                    </div>
+                    <span class="volunteer-duration">04.2022 - 05.2023</span>
+                </div>
+                <div class="volunteer-content">
+                    <p>Promoted the Nobel Peace Center's initiatives through community engagement, including organizing events and creating awareness about the importance of peacebuilding.</p>
+                </div>
+            </div>
+            
+            <div class="volunteer-item">
+                <div class="volunteer-header">
+                    <div>
+                        <span class="volunteer-position">IT Manager</span>
+                        <span class="volunteer-org">UN-Students, Oslo</span>
+                    </div>
+                    <span class="volunteer-duration">07.2017 - 01.2022</span>
+                </div>
+                <div class="volunteer-content">
+                    <p>Volunteered as an IT Manager, focusing on creating digital resources and supporting global awareness campaigns. Led the website redesign, enhancing usability and accessibility.</p>
+                </div>
+            </div>
+            
+            <div class="volunteer-item">
+                <div class="volunteer-header">
+                    <div>
+                        <span class="volunteer-position">Social Worker / Leader</span>
+                        <span class="volunteer-org">UNHCR and Intersos, Lebanon</span>
+                    </div>
+                    <span class="volunteer-duration">11.2013 - 05.2015</span>
+                </div>
+                <div class="volunteer-content">
+                    <p>Prioritized urgent cases for abused women and children, documented refugees needing financial aid, and managed refugee registration.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Languages Section -->
+        <section id="languages" class="section">
+            <h2 class="section-title"><i class="fas fa-language"></i> Languages</h2>
+            <div class="languages-container">
+                <div class="language-item">English: Fluent</div>
+                <div class="language-item">Norwegian: Fluent</div>
+                <div class="language-item">Arabic: Fluent</div>
+            </div>
+        </section>
+        
+        <!-- Interests Section -->
+        <section id="interests" class="section">
+            <h2 class="section-title"><i class="fas fa-heart"></i> Interests</h2>
+            <div class="interests-grid">
+                <div class="interest-item">
+                    <div class="interest-icon"><i class="fas fa-globe-americas"></i></div>
+                    <div>Cultural Exploration</div>
+                </div>
+                
+                <div class="interest-item">
+                    <div class="interest-icon"><i class="fas fa-users"></i></div>
+                    <div>Community Engagement</div>
+                </div>
+                
+                <div class="interest-item">
+                    <div class="interest-icon"><i class="fas fa-book-open"></i></div>
+                    <div>Continuous Learning</div>
+                </div>
+                
+                <div class="interest-item">
+                    <div class="interest-icon"><i class="fas fa-flask"></i></div>
+                    <div>Research & Innovation</div>
+                </div>
+                
+                <div class="interest-item">
+                    <div class="interest-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <div>Mentorship</div>
+                </div>
+                
+                <div class="interest-item">
+                    <div class="interest-icon"><i class="fas fa-rocket"></i></div>
+                    <div>Agile Innovation</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="mailto:Emad.hammami@outlook.com" class="footer-link"><i class="fas fa-envelope"></i> Email</a>
+                <a href="tel:+4794713960" class="footer-link"><i class="fas fa-phone"></i> +47 947 13 960</a>
+                <a href="https://www.linkedin.com/in/emadhammami" target="_blank" class="footer-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                <a href="https://www.researchgate.net/profile/Mohammad-Emad-Hammami" target="_blank" class="footer-link"><i class="fab fa-researchgate"></i> ResearchGate</a>
+            </div>
+            <p class="copyright">© 2023 Mohammad Emad Hammami. All rights reserved.</p>
         </div>
-
-        <!-- Certification Card 4 -->
-        <div class="cert-card">
-            <a href="images/1671612993872_page_1.jpg" target="_blank">
-                <img src="images/1671612993872_page_1.jpg" alt="Applying Project Management Certificate">
-                <div class="cert-info">
-                    <h3>Applying Project Management in the Real World</h3>
-                    <p>Google</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Certification Card 5 -->
-        <div class="cert-card">
-            <a href="images/1671784474270_page_1.jpg" target="_blank">
-                <img src="images/1671784474270_page_1.jpg" alt="Project Planning Certificate">
-                <div class="cert-info">
-                    <h3>Project Planning: Putting It All Together</h3>
-                    <p>Google</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Certification Card 6 -->
-        <div class="cert-card">
-            <a href="images/1671784491577_page_1.jpg" target="_blank">
-                <img src="images/1671784491577_page_1.jpg" alt="Project Management Professional Certificate">
-                <div class="cert-info">
-                    <h3>Project Management Professional Certificate</h3>
-                    <p>PMI and NASBA</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Certification Card 7 -->
-        <div class="cert-card">
-            <a href="images/1671784505017_page_1.jpg" target="_blank">
-                <img src="images/1671784505017_page_1.jpg" alt="Managing Project Stakeholders Certificate">
-                <div class="cert-info">
-                    <h3>Managing Project Stakeholders</h3>
-                    <p>PMI and NASBA</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Certification Card 8 -->
-        <div class="cert-card">
-            <a href="images/1671784515848_page_1.jpg" target="_blank">
-                <img src="images/1671784515848_page_1.jpg" alt="Collaborating with Microsoft 365 Certificate">
-                <div class="cert-info">
-                    <h3>Collaborating with Microsoft 365</h3>
-                    <p>PMI and NASBA</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Certification Card 9 -->
-        <div class="cert-card">
-            <a href="images/1671784528020_page_1.jpg" target="_blank">
-                <img src="images/1671784528020_page_1.jpg" alt="Managing Projects with Microsoft 365 Certificate">
-                <div class="cert-info">
-                    <h3>Managing Projects with Microsoft 365</h3>
-                    <p>PMI and NASBA</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Certification Card 10 -->
-        <div class="cert-card">
-            <a href="images/1671784557816_page_1.jpg" target="_blank">
-                <img src="images/1671784557816_page_1.jpg" alt="Optimizing Your Work with Microsoft 365 Certificate">
-                <div class="cert-info">
-                    <h3>Optimizing Your Work with Microsoft 365</h3>
-                    <p>PMI and NASBA</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Certification Card 11 -->
-        <div class="cert-card">
-            <a href="images/1705676493629_page_1.jpg" target="_blank">
-                <img src="images/1705676493629_page_1.jpg" alt="Managing and Leading Developers Certificate">
-                <div class="cert-info">
-                    <h3>Managing and Leading Developers</h3>
-                    <p>People Management</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Certification Card 12 -->
-        <div class="cert-card">
-            <a href="images/1705928511871_page_1.jpg" target="_blank">
-                <img src="images/1705928511871_page_1.jpg" alt="Coaching Skills for Leaders and Managers Certificate">
-                <div class="cert-info">
-                    <h3>Coaching Skills for Leaders and Managers</h3>
-                    <p>People Management</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Certification Card 13 -->
-        <div class="cert-card">
-            <a href="images/1705928528070_page_1.jpg" target="_blank">
-                <img src="images/1705928528070_page_1.jpg" alt="Effective Technical Communication Certificate">
-                <div class="cert-info">
-                    <h3>Effective Technical Communication</h3>
-                    <p>People Management</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Certification Card 14 -->
-        <div class="cert-card">
-            <a href="images/1705928552070_page_1.jpg" target="_blank">
-                <img src="images/1705928552070_page_1.jpg" alt="Building Trust Certificate">
-                <div class="cert-info">
-                    <h3>Building Trust</h3>
-                    <p>People Management</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Certification Card 15 -->
-        <div class="cert-card">
-            <a href="images/1705928566657_page_1.jpg" target="_blank">
-                <img src="images/1705928566657_page_1.jpg" alt="Manager's Guide to Difficult Conversations Certificate">
-                <div class="cert-info">
-                    <h3>Manager's Guide to Difficult Conversations</h3>
-                    <p>People Management</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Certification Card 16 -->
-        <div class="cert-card">
-            <a href="images/1705928611081_page_1.jpg" target="_blank">
-                <img src="images/1705928611081_page_1.jpg" alt="Inclusive Tech: Humane Code Reviews Certificate">
-                <div class="cert-info">
-                    <h3>Inclusive Tech: Humane Code Reviews</h3>
-                    <p>People Management</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Certification Card 17 -->
-        <div class="cert-card">
-            <a href="images/1705928637562_page_1.jpg" target="_blank">
-                <img src="images/1705928637562_page_1.jpg" alt="Agile Software Development Certificate">
-                <div class="cert-info">
-                    <h3>Agile Software Development: Creating an Agile Culture</h3>
-                    <p>People Management</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Certification Card 18 -->
-        <div class="cert-card">
-            <a href="images/1705928671773_page_1.jpg" target="_blank">
-                <img src="images/1705928671773_page_1.jpg" alt="Succeeding as a First-Time Tech Manager Certificate">
-                <div class="cert-info">
-                    <h3>Succeeding as a First-Time Tech Manager</h3>
-                    <p>People Management</p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Certification Card 19 -->
-        <div class="cert-card">
-            <a href="images/1705676493629_page_1.jpg" target="_blank">
-                <img src="images/1705676493629_page_1.jpg" alt="Moving from Developer to Engineering Manager Certificate">
-                <div class="cert-info">
-                    <h3>Moving from Developer to Engineering Manager</h3>
-                    <p>People Management</p>
-                </div>
-            </a>
+    </footer>
+    
+    <!-- Modal for Certifications -->
+    <div id="certModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Certification">
         </div>
     </div>
-</div>
-
-<!-- Testimonials Section -->
-<!--<div id="testimonials" class="section">
-    <h2>Testimonials</h2>
-    <blockquote>
-        "Emad is one of the most dedicated professionals I have had the pleasure to work with. His deep knowledge in machine learning and data-driven engineering has been instrumental in driving our projects forward. Emad combines his technical prowess with an unmatched work ethic, consistently delivering high-quality results under tight deadlines. He is not only a team player but also a leader who can inspire others to achieve their best." 
-        - <span class="reference" onclick="showDialog('Majdi Alali')">Majdi Alali</span>
-    </blockquote>
-    <blockquote>
-        "Working with Emad has been a remarkable experience. His approach to problem-solving and innovation sets him apart in the software engineering field. Emad is exceptionally skilled at understanding complex requirements and turning them into well-architected, scalable solutions. I have seen him lead projects with a calm demeanor and bring out the best in his team members. He is a true asset to any organization." 
-        - <span class="reference" onclick="showDialog('Wahid Rahmani')">Wahid Rahmani</span>
-    </blockquote>
-</div>-->
-
-<div id="dialog" class="dialog">
-    <div class="dialog-content">
-        <span class="dialog-close" onclick="closeDialog()">&times;</span>
-        <h3 id="dialog-name"></h3>
-        <p><strong>Title:</strong> <span id="dialog-title"></span></p>
-        <p><strong>company:</strong> <span id="dialog-company"></span></p>
-        <p><strong>Location:</strong> <span id="dialog-Location"></span></p>
-
-        <p><strong>Email:</strong> <span id="dialog-email"></span></p>
-        <p><strong>Mobile:</strong> <span id="dialog-mobile"></span></p>
-    </div>
-</div>
-
-
-        <!-- Volunteer Work -->
-<!-- Volunteer Work -->
-<div id="volunteer" class="section volunteer">
-    <h2>Volunteer Work</h2>
-    <ul>
-        <li>
-            <strong>Ambassador</strong> - Nobel Peace Center, Oslo (04.2022 - 05.2023)
-            <p>Promoted the Nobel Peace Center's initiatives through community engagement, including organizing events and creating awareness about the importance of peacebuilding. Engaged with local and international audiences, contributing to discussions around global peace, human rights, and social justice.</p>
-        </li>
-        <li>
-            <strong>IT Manager</strong> - UN-Students, Oslo (07.2017 - 01.2022)
-            <p>Volunteered as an IT Manager for the UN-Students organization, focusing on creating digital resources and supporting global awareness campaigns. My role included website management, member registration, and sponsor engagement. I also led the website redesign, enhancing usability and accessibility to better support the organization's mission of promoting human rights and social awareness through lectures and events. My responsibilities included collaborating with team members to organize lectures and discussions on critical social issues impacting global society.</p>
-        </li>
-        <li>
-            <strong>Campaign Manager</strong> - Tomohi (SYEA), Syria (02.2010 - 11.2013)
-            <p>Organized the Social Charity Campaign initiative for the Tomohi Organization, also known as the Syrian Young Entrepreneurs Association (SYEA). Focused on communicating with investors to fund students struggling financially to complete their education.</p>
-        </li>
-        <li>
-            <strong>Social Worker / Leader</strong> - UNHCR and Intersos, Lebanon (11.2013 - 05.2015)
-            <p>Prioritized urgent UNHCR cases for abused women and children, documented refugees needing financial aid, and managed refugee registration. Coordinated with relevant parties to ensure cases received appropriate support, building essential crisis management and intervention skills.</p>
-        </li>
-        <li>
-            <strong>Social Worker / Team Leader</strong> - Danish Refugee Council (DRC), Lebanon (11.2013 - 05.2015)
-            <p>Provided support to women and children affected by violence, coordinating legal aid and financial assistance for victims. Managed a team, handled sensitive cases, and advocated for the rights of vulnerable individuals, emphasizing protection services.</p>
-        </li>
-        <li>
-            <strong>Social Worker</strong> - World Vision, Lebanon (11.2013 - 05.2015)
-            <p>Assisted women and children affected by violence, coordinating legal referrals and financial aid. Completed specialized training on working with trauma victims, enhancing my ability to provide compassionate support in challenging environments.</p>
-        </li>
-        <li>
-            <strong>Social Science Teacher</strong> - Nærøy Municipality, Norway (01.2017 - 02.2017)
-            <p>Provided social science education to adult immigrants, covering Norwegian history and culture to support their integration and understanding of societal structures in Norway.</p>
-    </ul>
-    </ul>
-</div>
-
-
-
-
-
-        <!-- Languages and Interests -->
-        <div id="languages" class="section">
-            <h2>Languages</h2>
-            <p>English: Fluent | Norwegian: Fluent | Arabic: Fluent</p>
-        </div>
-
-        <div id="interests" class="section">
-            <h2>Interests</h2>
-            
-            <p>
-                <span style="font-size: 1.5em; margin-right: 10px;">🌍</span>
-                <strong>Cultural Exploration:</strong> I love exploring different cultures, languages, and customs, which helps me connect authentically with diverse teams. This cultural awareness fosters inclusivity and drives innovation within my projects.
-            </p>
-            
-            <p>
-                <span style="font-size: 1.5em; margin-right: 10px;">🤝</span>
-                <strong>Community Engagement:</strong> Volunteering and social work are central to my values. These experiences have taught me empathy, resilience, and adaptability, enriching my leadership and people-centered approach.
-            </p>
-            
-            <p>
-                <span style="font-size: 1.5em; margin-right: 10px;">📚</span>
-                <strong>Continuous Learning:</strong> I am dedicated to lifelong learning in technology, management, and Agile practices. Staying current drives innovation in my projects and encourages my teams to grow and adapt.
-            </p>
-            
-            <p>
-                <span style="font-size: 1.5em; margin-right: 10px;">🔬</span>
-                <strong>Research & Innovation:</strong> I enjoy leveraging research to drive impactful decisions and innovation. I lead teams with a data-driven approach that fosters curiosity and continuous improvement.
-            </p>
-            
-            <p>
-                <span style="font-size: 1.5em; margin-right: 10px;">👨‍🏫</span>
-                <strong>Mentorship:</strong> Mentorship is a key passion for me. I strive to nurture the next generation of professionals, guiding them through technical challenges and promoting collaboration and growth.
-            </p>
-            
-            <p>
-                <span style="font-size: 1.5em; margin-right: 10px;">🚀</span>
-                <strong>Agile Innovation:</strong> I explore ways to adapt Agile practices to modern challenges. My flexible approach to Agile encourages engagement and successful project delivery.
-            </p>
-        </div>
-        
-        
-        
-        
-
-        <div class="footer">
-            <p>Connect with me on <a href="https://www.linkedin.com/in/emadhammami">LinkedIn</a> | <a href="https://www.researchgate.net/profile/Mohammad-Emad-Hammami">ResearchGate</a></p>
-        </div>
-    </div>
-
+    
     <script>
-        // Disable right-click
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-    
-        // Add overlay to deter screenshots (optional)
-        const overlay = document.createElement('div');
-        overlay.id = 'screenshotOverlay';
-        document.body.appendChild(overlay);
-    
-        // Detect Print Screen key press and show overlay (may not work in all browsers)
-        document.addEventListener('keyup', function(e) {
-            if (e.key === 'PrintScreen') {
-                alert("Screenshots are discouraged on this page.\nPlease contact Emad.hammami@outlook.com for any inquiries.");
-                overlay.style.display = 'block';
-                setTimeout(() => overlay.style.display = 'none', 200); // Hide after a moment
+        // Open modal with certification image
+        function openModal(imageSrc) {
+            const modal = document.getElementById('certModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'flex';
+            modalImg.src = imageSrc;
+        }
+        
+        // Close modal
+        function closeModal() {
+            document.getElementById('certModal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('certModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
             }
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Remove active class from all nav links
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Add active class to clicked nav link
+                this.classList.add('active');
+                
+                // Scroll to section
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
         });
-
-        // Data for the references
-const referenceData = {
-    'Majdi Alali': {
-        title: 'Data Engineery',
-        company:'Tax Office, Norway',
-        Location: 'Oslo - Norway',
-        email: 'majdi.alali@taxoffice.no',
-        mobile: '+47 123 45 678'
-    },
-    'Wahid Rahmani': {
-        title: 'Software Engineer',
-        company:' Beining & Bogen',
-        Location: 'Oslo - Norway',
-        email: 'wahid.rahmani@beiningbogen.no',
-        mobile: '+47 987 65 432'
-    }
-};
-
-// Function to show the dialog
-// Open dialog with smooth transition
-function showDialog(name) {
-    const data = referenceData[name];
-    document.getElementById('dialog-name').innerText = name;
-    document.getElementById('dialog-title').innerText = data.title;
-    document.getElementById('dialog-company').innerText = data.company;
-    document.getElementById('dialog-email').innerText = data.email;
-    document.getElementById('dialog-mobile').innerText = data.mobile;
-    document.getElementById('dialog-Location').innerText = data.Location;
-
-    const dialog = document.getElementById('dialog');
-    dialog.style.display = 'flex'; // Set display to flex to make it visible
-    
-    // Use a small delay to ensure the transition effect applies correctly
-    setTimeout(() => {
-        dialog.classList.add('show'); // Add the 'show' class for opacity transition
-        dialog.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Scroll to the dialog
-    }, 10);
-}
-
-// Close dialog
-function closeDialog() {
-    const dialog = document.getElementById('dialog');
-    dialog.classList.remove('show'); // Remove the 'show' class to start fading out
-    setTimeout(() => {
-        dialog.style.display = 'none'; // After the transition, hide the dialog
-    }, 500); // Match the duration of the opacity transition in CSS
-}
-
+        
+        // Highlight active section in navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 300) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
     </script>
-    
-    
 </body>
 </html>
