@@ -2,7 +2,7 @@
 FROM nginx:alpine
 
 # Copy the CV files to the NGINX default directory
-COPY cv.html /usr/share/nginx/html/index.html
+COPY index.html /usr/share/nginx/html/index.html
 COPY cvstyle.css /usr/share/nginx/html/
 COPY images /usr/share/nginx/html/images/
 COPY cv_13530357.png /usr/share/nginx/html/
