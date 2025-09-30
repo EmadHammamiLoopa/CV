@@ -166,11 +166,10 @@
             overflow-x: auto;
             padding: 15px 0;
             scrollbar-width: none;
+            
         }
         
-        .nav-container::-webkit-scrollbar {
-            display: none;
-        }
+
         
         .nav-link {
             color: var(--dark);
@@ -690,7 +689,7 @@
         }
 .language-toggle {
     position: absolute;
-    top: 30px;
+    top: 20px;
     right: 20px;   /* fix: was -20% */
     font-size: 14px;
     font-weight: 600;
@@ -777,3 +776,46 @@
                 padding: 20px;
             }
         }
+/* ✅ Mobile-only horizontal scroll */
+/* Mobile nav: layout + color any horizontal scrollbar */
+@media (max-width: 1024px) {
+  /* keep the nav scrolling correctly and starting at the first item */
+  nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .nav-container { flex-wrap: nowrap; width: max-content; }
+
+  /* WebKit/Chromium (Chrome/Edge/Safari on desktop) */
+  .nav-container::-webkit-scrollbar,
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    height: 8px;                 /* horizontal bar thickness */
+  }
+
+  .nav-container::-webkit-scrollbar-track,
+  html::-webkit-scrollbar-track,
+  body::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .nav-container::-webkit-scrollbar-thumb,
+  html::-webkit-scrollbar-thumb,
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--secondary); /* ORANGE */
+    border-radius: 10px;
+  }
+
+  /* Firefox */
+  html, body, .nav-container {
+    scrollbar-color: var(--secondary) transparent; /* thumb | track */
+    scrollbar-width: thin;
+  }
+}
+
+
+/* ✅ Desktop behavior (no scrolling, evenly spread) */
+@media (min-width: 1025px) {
+  .nav-container {
+    flex-wrap: wrap;    /* go back to normal */
+    width: 100%;        /* fill the space */
+    justify-content: center;
+  }
+}

@@ -719,6 +719,23 @@
             });
         });
         
+        // Auto-scroll navbar to keep active item in view
+function scrollNavToActive() {
+  const activeLink = document.querySelector('.nav-link.active');
+  const navContainer = document.querySelector('.nav-container');
+
+  if (activeLink && navContainer) {
+    const linkRect = activeLink.getBoundingClientRect();
+    const containerRect = navContainer.getBoundingClientRect();
+
+    // if active link is partly or completely invisible, scroll it into view
+    if (linkRect.left < containerRect.left || linkRect.right > containerRect.right) {
+      activeLink.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+  }
+}
+
+
         // Highlight active section in navigation
         window.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('section');
@@ -741,6 +758,8 @@
                     link.classList.add('active');
                 }
             });
+            scrollNavToActive();
+
         });
     </script>
 </body>
