@@ -1148,6 +1148,7 @@ main.container {
 /* Desktop: pull Skills before Research (negative order = before all default-0 items) */
 @media (min-width: 769px) {
     main.container section#skills { order: -1; }
+    .nav-container a[href="#skills"] { order: -1; }
 }
 
 /* ── RESPONSIVE ──────────────────────────────────────── */
